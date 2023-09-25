@@ -87,6 +87,7 @@ namespace SkalProj_Datastrukturer_Minne
             bool isTrue = false;
             List<string> theList = new List<string>();
             string userInput;
+
             try
             {
                 do
@@ -161,20 +162,9 @@ namespace SkalProj_Datastrukturer_Minne
                 Console.WriteLine(e.Message);
                 Console.ReadKey();
                 ExamineList();
-                //throw;
+
             }
-
-
-            //
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
-
-            //switch (nav) {...}
-
         }
-
-
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
@@ -189,6 +179,7 @@ namespace SkalProj_Datastrukturer_Minne
             {
                 Queue<string> personList = new Queue<string>();
                 bool isTrue = false;
+
                 string userInput;
                 do
                 {
@@ -205,6 +196,7 @@ namespace SkalProj_Datastrukturer_Minne
                                       "\nTo remove a person from the queue press (-)" +
                                       "\nTo exit to main menu press (E)");
                     ConsoleKey userInputKey = Console.ReadKey(true).Key;
+
                     switch (userInputKey)
                     {
                         case ConsoleKey.Add:
@@ -223,7 +215,7 @@ namespace SkalProj_Datastrukturer_Minne
                             break;
                         case ConsoleKey.Subtract:
 
-                            Console.WriteLine($"{personList.ToArray().GetValue(0).ToString()} is being expedited and are leaving the queue");
+                            Console.WriteLine($"{personList.ToArray().GetValue(0)!.ToString()} is being expedited and are leaving the queue");
                             personList.Dequeue();
                             foreach (var person in personList)
                             {
@@ -285,7 +277,9 @@ namespace SkalProj_Datastrukturer_Minne
                                       "\nTo remove a person from the queue press (-)" +
                                       "\nTo ReverseText press (R)" +
                                       "\nTo exit to main menu press (E)");
+
                     ConsoleKey userInputKey = Console.ReadKey(true).Key;
+
                     switch (userInputKey)
                     {
                         case ConsoleKey.Add:
@@ -304,7 +298,7 @@ namespace SkalProj_Datastrukturer_Minne
                             break;
                         case ConsoleKey.Subtract:
 
-                            Console.WriteLine($"{personList.ToArray().GetValue(0).ToString()} is being expedited and are leaving the queue");
+                            Console.WriteLine($"{personList.ToArray().GetValue(0)!.ToString()} is being expedited and are leaving the queue");
                             personList.Pop();
                             foreach (var person in personList)
                             {
@@ -323,9 +317,7 @@ namespace SkalProj_Datastrukturer_Minne
                             Console.Clear();
                             throw new ArgumentException("Invalid input, enter (+) to add or (-) to remove" +
                                                         "\nPress any key to try again.");
-
                     }
-
                 } while (!isTrue);
             }
             catch (Exception e)
@@ -355,12 +347,12 @@ namespace SkalProj_Datastrukturer_Minne
             string userInput = Console.ReadLine()!;
 
 
-            foreach (char c in userInput) //use a foreach loop to add each character to the charctack list
+            foreach (char c in userInput) //use a foreach loop to add each character to the character list
             {
                 charStack.Push(c);
             }
 
-            char[] reversedChars = new char[userInput.Length]; // creates a new character array with the size of the original userInput text
+            char[] reversedChars = new char[userInput.Length]; // creates a new character array with the size of the original characters in the userInput text
 
             for (int i = 0; i < userInput.Length; i++) //Then, it uses a for loop to pop characters from the stack (charStack)
                                                        //and place them into the empty array (reversedChars) in reverse order.
@@ -384,7 +376,7 @@ namespace SkalProj_Datastrukturer_Minne
             Stack<char> stack = new Stack<char>();
 
             Console.Clear();
-            Console.WriteLine("Use this method to check if the parentheses in a string are correct or incorrect" +
+            Console.WriteLine("Use this method to check if the parenthesis in a string are correct or incorrect" +
                               "\nEnter a text!");
 
             string userInput = Console.ReadLine()!;
@@ -441,7 +433,7 @@ namespace SkalProj_Datastrukturer_Minne
 
     }
 
-    #region Questions
+    #region Exercise 4, Questions
     //1. Stacken används för att lagra value type typer i en strikt ordning som kallas "last in first out".
     //Stacken är självunderhållande dvs hanterar att rensa minnet själv.
 
